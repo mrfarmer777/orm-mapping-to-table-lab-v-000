@@ -29,9 +29,9 @@ class Student
   end
 
   def save
-    sql="INSERT INTO students(name, grade) VALUES(?,?)"
-    DB[:conn].execute(sql,self.name,self.grade)
-    @id=DB[:conn].execute("SELECT last_insert_rowid() FROM students").flatten.first
+    sql="INSERT INTO students(name, grade) VALUES(?,?)"    #inserts student attributes into the database
+    DB[:conn].execute(sql,self.name,self.grade)     #executes the statement above with name and grade bound variables
+    @id=DB[:conn].execute("SELECT last_insert_rowid() FROM students").flatten.first   #gets the last inserted row id and flattens it, gets the first element (the actual ID)
   end
 
 
