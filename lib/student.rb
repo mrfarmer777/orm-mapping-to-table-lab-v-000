@@ -27,6 +27,11 @@ class Student
     sql="DROP TABLE students"
     DB[:conn].execute(sql)
   end
+
+  def save
+    sql="INSERT INTO students(name, grade) VALUES(?,?)"
+    DB[:conn].execute(sql,self.name,self.grade)
+  end
     
 
 
