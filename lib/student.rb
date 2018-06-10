@@ -34,6 +34,12 @@ class Student
     @id=DB[:conn].execute("SELECT last_insert_rowid() FROM students").flatten.first   #gets the last inserted row id and flattens it, gets the first element (the actual ID)
   end
 
+  def self.create(stuHash)
+    stu=Student.new(stu_hash[:name],stu_hash[:grade])
+    @id=stu.save
+    stu
+  end
+
 
 
 end
